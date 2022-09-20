@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  
+  <parameter name="URL" value="www.facebbok.com"/>
+  <parameter name="URL2" value="www.faceb0ok.com"/>
+   
+  <test  name="paramaeterization">                         
+    <classes>                                
+     <class name="xmlunderstanding.Parameterization"/>
+    </classes>
+  </test>
+</suite> 
