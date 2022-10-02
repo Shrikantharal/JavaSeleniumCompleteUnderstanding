@@ -1,0 +1,102 @@
+
+
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
+
+//import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class InvokeBrowser {
+
+	// **********************************************************************************************//
+	// Misc. thigs
+
+	// **********************************************************************************************//
+	/*@Test
+	public void m_thod() {
+		//WebDriverManager.chromedriver().setup();
+		System.setProperty("webdriver.chromedriver.driver", "C:\\Users\\91845\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.flipkart.com/");
+		WebElement window = driver.findElement(By.className("_2QfC02"));
+		driver.findElement(By.className("_2IX_2-")).sendKeys("shrikant");
+		driver.findElement(By.cssSelector("._3mctLh ")).sendKeys("itsKing@789");
+		Actions act = new Actions(driver);
+		act.moveToElement(driver.findElement(By.cssSelector("._2HKlqd "))).build().perform();
+		act.click();
+
+		
+		act.moveToElement(driver.findElement(By.linkText("New to Flipkart? Create an account"))).build().perform();
+		act.click().build().perform();
+		
+
+		
+		  JavascriptExecutor je = (JavascriptExecutor) driver;
+		  je.executeScript("arguments[0].click();", window);/// JS to click webElement
+		  
+		  je.executeScript("window.scrollBy(0,150)"); /// JS to Scroll page
+		 */
+	
+	
+	
+	/*
+	 * @Test public void javaScript() throws InterruptedException {
+	 * 
+	 * System.setProperty("webdriver.chromedriver.driver",
+	 * "C:\\Users\\91845\\Downloads\\chromedriver_win32\\chromedriver.exe");
+	 * WebDriver driver = new ChromeDriver();
+	 * driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+	 * JavascriptExecutor je=(JavascriptExecutor)driver;
+	 * je.executeScript("window.scrollBy(0,500)"); //use to scroll page to 500 pixel
+	 * vertical
+	 * 
+	 * Thread.sleep(3300);
+	 * je.executeScript("document.querySelector('.tableFixHead').scrollTop=500");
+	 * 
+	 * //In dev tool open console and create
+	 * query=>>document.querySelector(".tableFixHead").scrollTop=500 and click enter
+	 * and check. List<WebElement>
+	 * ls=driver.findElements(By.cssSelector(".tableFixHead td:nth-child(4)")); int
+	 * sum=0; for(int i=0;i<ls.size();i++) {
+	 * System.out.println(Integer.parseInt(ls.get(i).getText()));
+	 * sum=sum+Integer.parseInt(ls.get(i).getText()); }
+	 * System.out.println("total is:"+sum);
+	 * 
+	 * 
+	 * 
+	 * }
+	 */
+	
+	@Test
+	public void windowHandle()
+	{
+		System.setProperty("webdriver.chromedriver.driver","C:\\Users\\91845\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://demoqa.com/browser-windows");
+		driver.findElement(By.id("tabButton")).click();
+		driver.findElement(By.id("tabButton")).click();
+		String parentWindow=driver.getWindowHandle();
+		/*
+		 * Set<String> mulWindow=driver.getWindowHandles();
+		 * driver.switchTo().window(mulWindow.))
+		 */
+		
+		  ArrayList<String> lsWindow=new ArrayList<String>(driver.getWindowHandles());
+		  for(int i=0;i<lsWindow.size();i++) { System.out.println(lsWindow.get(i)); }
+		  driver.switchTo().window(lsWindow.get(2));
+		 
+	}
+
+}
